@@ -1,0 +1,78 @@
+import { useState } from 'react';
+import { useMediaQuery } from './hooks';
+import {
+  LoadingScreen,
+  CustomCursor,
+  Navigation,
+  Hero,
+  About,
+  Projects,
+  Experience,
+  Education,
+  Skills,
+  Contact,
+  Footer,
+} from './components';
+import { ThreeBackground } from './components/ThreeBackground';
+
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
+
+  const handleLoadingComplete = () => {
+    setIsLoading(false);
+  };
+
+  return (
+    <>
+      {/* Skip to main content link for accessibility */}
+      <a href="#main-content" className="skip-to-main">
+        Skip to main content
+      </a>
+
+      {/* Loading Screen - conditionally displayed */}
+      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+
+      {/* Custom Cursor - conditionally rendered for desktop only */}
+      {isDesktop && <CustomCursor />}
+
+      {/* Three.js Background */}
+      <ThreeBackground />
+
+      {/* Main Application */}
+      <div className="min-h-screen relative text-gray-900">
+        {/* Navigation */}
+        <Navigation />
+
+        {/* Main content wrapper with semantic HTML */}
+        <main id="main-content">
+          {/* Hero Section */}
+          <Hero />
+
+          {/* About Section */}
+          <About />
+
+          {/* Projects Section */}
+          <Projects />
+
+          {/* Experience Section */}
+          <Experience />
+
+          {/* Education Section */}
+          <Education />
+
+          {/* Skills Section */}
+          <Skills />
+
+          {/* Contact Section */}
+          <Contact />
+        </main>
+
+        {/* Footer */}
+        <Footer />
+      </div>
+    </>
+  );
+}
+
+export default App;
