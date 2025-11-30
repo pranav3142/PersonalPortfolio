@@ -54,7 +54,7 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 0.8 }}
         >
           <p className="text-xl sm:text-2xl text-gray-700 font-light leading-relaxed max-w-3xl">
-            with a passion for creating thoughtful and innovative digital solutions through full-stack development.
+            with a passion for creating innovative digital solutions through full-stack development.
           </p>
         </motion.div>
 
