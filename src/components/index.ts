@@ -9,4 +9,4 @@ export { Education } from './Education';
 export { Skills } from './Skills';
 export { Contact } from './Contact';
 export { Footer } from './Footer';
-
+export { default as Chatbot } from './Chatbot';

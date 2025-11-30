@@ -1,0 +1,62 @@
+JAMUNARANI PRABHU PRANAV
+ e1384377@u.nus.edu | www.linkedin.com/in/jppranav07 | github.com/pranav3142
+
+EDUCATION
+National University of Singapore (NUS) Aug 2024 - May 2028
+Bachelor of Computing in Computer Science
+Computer Science GPA: 4.33/5.0
+Relevant Courses: CP2106 Independent Software Development Project (Orbital), CS2103T Software Engineering, CS2030S Programming Methodology II, CS2040S Data Structures and Algorithms, CS1101S Programming Methodology, CS2100 Computer Organisation, ST2334 Probability and Statistics, CS1231S Discrete Structures, MA1522 Linear Algebra for Computing, MA1521 Calculus for Computing
+Activities: NUS Climbing Club, NUS Computing Society
+
+Nanyang Junior College | Singapore Jan 2020 - Dec 2021
+A-Level Results: 88.75 RP
+Subjects: Biology, Mathematics, Economics, Chemistry
+Activities: Outdoor Adventure Club, Nanyang vertical challenge Organiser
+
+PROFESSIONAL EXPERIENCE
+Empire code | Singapore May 2024 - August 2024
+Coding & Robotics Tutor
+* Taught Python, Blender 3D modelling, JavaScript and other block-based coding to students
+* Became MOE registered Instructor
+* Coached a class of students for the Coding Olympics Singapore
+
+PROJECTS & HACKATHONS: 
+PRISM (Prison vehicle management)
+Swolemates
+Crisis Trainer+
+Compostiq bin
+
+Swolemates | AI – powered Social fitness tracking App May 2025 - Aug 2025
+CP2106 Independent Software Development Project (Orbital) - Apollo 11 (2nd highest achievement)
+* Full Stack engineering of a cross-platform mobile app
+* Created front-end UI/UX with React Native and Expo Router
+* Implemented FastAPI backend
+* Integrated Machine Learning models for Buddy matching feature
+* Designed AI workout generator using Google Gemini Flash
+* Managed large scale relational databases using Firebase and Supabase with PostgreSQL
+* Applied software engineering testing practices (unit, integration and regression testing)
+
+Crisis Trainer+ | Crisis trainer and reporting app June 2025
+DSTA CODE_EXP Hackathon – Semi Finalists
+* Mobile training platform to teach users how to respond, report and recover from emergencies
+* Designed intuitive UI/UX flow to allow everyday civilians to navigate the app
+* Functioned in a team-based, fast-paced hackathon environment to deliver a functional product
+* Created low-fidelity wireframes to map user flow and refined it in Figma
+
+Compostiq bin | smart compost bin design Aug 2025
+NUS IDP IDEATE Ideathon
+* A sustainability initiative to tackle the problem of food waste in Singapore
+* Interviewed with NEA to research on food waste problems and shortcomings in current solutions
+
+TECHNICAL SKILLS
+Programming & Scripting: Java, Python, JavaScript, TypeScript, C, SQL, MIPS Assembly
+Frameworks & Tools: React Native (Expo), Firebase, Git, Flask
+Web & Data: HTML/CSS, Google Sheets Automation, Data Analysis, Supabase, PostgreSQL, MySQL
+Design & Prototyping: Figma, UI/UX Wireframing, UML Diagrams, Blender 3D animations
+Software Engineering Practices: Version Control (Git), Unit & Integration Testing
+AI / Machine Learning: Feature based recommendation System, Agentic AI using MCPs
+
+CERTIFICATIONS
+International Quant Championship 2025 Top 20% globally for Stage 1 & Gold Achiever
+Research Consultant for WorldQuant BRAIN
+Harvard CS50

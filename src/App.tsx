@@ -12,6 +12,7 @@ import {
   Skills,
   Contact,
   Footer,
+  Chatbot,
 } from './components';
 import { ThreeBackground } from './components/ThreeBackground';
 
@@ -70,6 +71,9 @@ function App() {
 
         {/* Footer */}
         <Footer />
+
+        {/* Chatbot */}
+        <Chatbot />
       </div>
     </>
   );
