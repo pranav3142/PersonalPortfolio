@@ -25,7 +25,7 @@ const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) => {
     <div className={`space-y-4 ${className}`}>
       {items.map((item, index) => {
         const isExpanded = expandedIndex === index;
-        
+
         return (
           <motion.div
             key={index}
@@ -45,13 +45,13 @@ const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) => {
                   <motion.div
                     animate={{ rotate: isExpanded ? 360 : 0 }}
                     transition={{ duration: 0.3 }}
-                    className="text-purple-400 flex-shrink-0"
+                    className="text-black flex-shrink-0"
                   >
                     {item.icon}
                   </motion.div>
                 )}
                 <div className="min-w-0 flex-1">
-                  <h3 className="text-base sm:text-lg font-semibold text-slate-100">
+                  <h3 className="text-base sm:text-lg font-semibold text-black">
                     {item.title}
                   </h3>
                   {item.subtitle && (
@@ -74,16 +74,16 @@ const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) => {
               {isExpanded && (
                 <motion.div
                   initial={{ height: 0, opacity: 0 }}
-                  animate={{ 
-                    height: 'auto', 
+                  animate={{
+                    height: 'auto',
                     opacity: 1,
                     transition: {
                       height: { duration: 0.3 },
                       opacity: { duration: 0.2, delay: 0.1 }
                     }
                   }}
-                  exit={{ 
-                    height: 0, 
+                  exit={{
+                    height: 0,
                     opacity: 0,
                     transition: {
                       height: { duration: 0.3 },

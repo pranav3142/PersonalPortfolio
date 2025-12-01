@@ -22,17 +22,29 @@ export function Skills() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const skillGroups: SkillGroup[] = [
-    { 
-      category: 'Languages', 
-      skills: ['Python', 'Java', 'C/C++', 'JS'] 
+    {
+      category: 'Programming & Scripting',
+      skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'C', 'SQL', 'MIPS Assembly']
     },
-    { 
-      category: 'Frameworks', 
-      skills: ['React', 'Node', 'FastAPI', 'JavaFX'] 
+    {
+      category: 'Frameworks & Tools',
+      skills: ['React Native (Expo)', 'Firebase', 'Git', 'Flask']
     },
-    { 
-      category: 'Tools', 
-      skills: ['VS Code', 'Git', 'R', 'Firebase'] 
+    {
+      category: 'Web & Data',
+      skills: ['HTML/CSS', 'Google Sheets Automation', 'Data Analysis', 'Supabase', 'PostgreSQL', 'MySQL']
+    },
+    {
+      category: 'Design & Prototyping',
+      skills: ['Figma', 'UI/UX Wireframing', 'UML Diagrams', 'Blender 3D animations']
+    },
+    {
+      category: 'Software Engineering Practices',
+      skills: ['Version Control (Git)', 'Testing', 'Agile workflows']
+    },
+    {
+      category: 'AI / Machine Learning',
+      skills: ['Feature based recommendation System', 'Agentic AI', 'Q&A RAG system']
     },
   ];
 
@@ -66,11 +78,11 @@ export function Skills() {
   const fadeInUp = prefersReducedMotion
     ? {}
     : {
-        initial: { opacity: 0, y: 20 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, margin: '-100px' },
-        transition: { duration: 0.6 },
-      };
+      initial: { opacity: 0, y: 20 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.6 },
+    };
 
   return (
     <section id="skills" className="py-20 px-4 relative" ref={sectionRef}>
@@ -95,16 +107,16 @@ export function Skills() {
                 isVisible
                   ? { opacity: 1, y: 0 }
                   : prefersReducedMotion
-                  ? { opacity: 1, y: 0 }
-                  : { opacity: 0, y: 20 }
+                    ? { opacity: 1, y: 0 }
+                    : { opacity: 0, y: 20 }
               }
               transition={
                 prefersReducedMotion
                   ? {}
                   : {
-                      duration: 0.5,
-                      delay: groupIndex * 0.15,
-                    }
+                    duration: 0.5,
+                    delay: groupIndex * 0.15,
+                  }
               }
             >
               {/* Category title */}
@@ -122,19 +134,19 @@ export function Skills() {
                       isVisible
                         ? { opacity: 1, scale: 1 }
                         : prefersReducedMotion
-                        ? { opacity: 1, scale: 1 }
-                        : { opacity: 0, scale: 0.8 }
+                          ? { opacity: 1, scale: 1 }
+                          : { opacity: 0, scale: 0.8 }
                     }
                     transition={
                       prefersReducedMotion
                         ? {}
                         : {
-                            duration: 0.4,
-                            delay: groupIndex * 0.15 + skillIndex * 0.08,
-                            type: 'spring',
-                            stiffness: 260,
-                            damping: 20,
-                          }
+                          duration: 0.4,
+                          delay: groupIndex * 0.15 + skillIndex * 0.08,
+                          type: 'spring',
+                          stiffness: 260,
+                          damping: 20,
+                        }
                     }
                   >
                     <Badge variant="default" className="w-full justify-center">

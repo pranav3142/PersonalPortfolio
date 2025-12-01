@@ -49,7 +49,7 @@ export function About() {
       icon: Lightbulb,
       title: 'Problem Solving',
       description:
-        'Tackling complex challenges with creative thinking and technical expertise.',
+        'Tackling complex challenges with creative thinking and DSA expertise.',
     },
   ];
 
@@ -71,11 +71,11 @@ export function About() {
           <Card glassEffect>
             <p className="text-gray-700 text-lg sm:text-xl leading-relaxed font-light">
               I'm a Computer Science student at the National University of Singapore,
-              passionate about creating innovative solutions through technology. With
-              experience in full-stack development and a love for teaching, I strive to
+              passionate about creating innovative solutions through technology. I strive to
               build applications that make a meaningful impact. My journey in tech has
               been driven by curiosity, creativity, and a commitment to continuous
-              learning.
+              learning. I am also passionate about sustainbility and love to work on projects that make a positive impact.
+              Find me out in nature exploring the world around me when I'm not coding.
             </p>
           </Card>
         </motion.div>

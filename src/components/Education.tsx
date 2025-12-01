@@ -17,11 +17,11 @@ export function Education() {
   const fadeInUp = prefersReducedMotion
     ? {}
     : {
-        initial: { opacity: 0, y: 20 },
-        whileInView: { opacity: 1, y: 0 },
-        viewport: { once: true, margin: '-100px' },
-        transition: { duration: 0.6 },
-      };
+      initial: { opacity: 0, y: 20 },
+      whileInView: { opacity: 1, y: 0 },
+      viewport: { once: true, margin: '-100px' },
+      transition: { duration: 0.6 },
+    };
 
   return (
     <section id="education" className="py-20 px-4 relative">
@@ -63,11 +63,21 @@ export function Education() {
                 <p className="text-sm sm:text-base text-gray-600 font-light">
                   National University of Singapore
                 </p>
+                <div className="mt-4 pt-4 border-t border-gray-100">
+                  <p className="text-sm text-gray-800 font-medium mb-2">Relevant Courses:</p>
+                  <p className="text-sm text-gray-600 font-light leading-relaxed">
+                    CP2106 Independent Software Development Project (Orbital), CS2103T Software Engineering,
+                    CS2030S Programming Methodology II, CS2040S Data Structures and Algorithms,
+                    CS1101S Programming Methodology, CS2100 Computer Organisation,
+                    ST2334 Probability and Statistics, CS1231S Discrete Structures,
+                    MA1522 Linear Algebra for Computing, MA1521 Calculus for Computing
+                  </p>
+                </div>
               </div>
             </div>
           </Card>
         </motion.div>
       </div>
-    </section>
+    </section >
   );
 }
