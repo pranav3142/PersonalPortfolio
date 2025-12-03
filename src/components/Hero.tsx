@@ -2,8 +2,6 @@
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
-import Button from './ui/Button';
-
 /**
  * Hero component with particle text effect and typewriter animation
  * Features:
@@ -15,15 +13,6 @@ import Button from './ui/Button';
  * - Scroll indicator
  */
 export function Hero() {
-
-
-
-  const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section
