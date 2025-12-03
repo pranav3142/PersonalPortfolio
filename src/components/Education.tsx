@@ -54,7 +54,7 @@ export function Education() {
                     Bachelor of Computing in Computer Science
                   </h3>
                   <span className="text-gray-600 font-light text-sm sm:text-base">
-                    Aug 2023 – May 2027
+                    Aug 2024 – May 2028
                   </span>
                 </div>
                 <p className="text-base sm:text-lg text-gray-700 mb-2 font-light">

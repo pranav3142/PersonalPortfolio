@@ -129,11 +129,11 @@ const Chatbot: React.FC = () => {
         return (
             <button
                 onClick={() => setIsOpen(true)}
-                className="fixed bottom-6 right-6 z-50 p-4 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 hover:scale-110 flex items-center gap-2 group"
+                className="fixed bottom-6 right-6 z-50 p-4 bg-gray-900 text-white rounded-full shadow-lg hover:bg-gray-800 transition-all duration-300 hover:scale-105 flex items-center gap-2 group"
                 aria-label="Open Chatbot"
             >
                 <MessageCircle size={24} />
-                <span className="max-w-0 overflow-hidden group-hover:max-w-xs transition-all duration-300 whitespace-nowrap">
+                <span className="whitespace-nowrap font-light">
                     Ask Pranav AI
                 </span>
             </button>
@@ -146,7 +146,7 @@ const Chatbot: React.FC = () => {
                 }`}
         >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 bg-blue-600 text-white rounded-t-2xl">
+            <div className="flex items-center justify-between p-4 bg-gray-900 text-white rounded-t-2xl">
                 <div className="flex items-center gap-2">
                     <Bot size={20} />
                     <h3 className="font-semibold">Ask Pranav AI</h3>
@@ -154,14 +154,14 @@ const Chatbot: React.FC = () => {
                 <div className="flex items-center gap-2">
                     <button
                         onClick={() => setIsMinimized(!isMinimized)}
-                        className="p-1 hover:bg-blue-700 rounded transition-colors"
+                        className="p-1 hover:bg-gray-800 rounded transition-colors"
                         aria-label={isMinimized ? 'Maximize' : 'Minimize'}
                     >
                         {isMinimized ? <Maximize2 size={16} /> : <Minimize2 size={16} />}
                     </button>
                     <button
                         onClick={() => setIsOpen(false)}
-                        className="p-1 hover:bg-blue-700 rounded transition-colors"
+                        className="p-1 hover:bg-gray-800 rounded transition-colors"
                         aria-label="Close"
                     >
                         <X size={16} />
@@ -180,7 +180,7 @@ const Chatbot: React.FC = () => {
                             >
                                 <div
                                     className={`max-w-[80%] p-3 rounded-2xl ${msg.sender === 'user'
-                                        ? 'bg-blue-600 text-white rounded-br-none'
+                                        ? 'bg-gray-900 text-white rounded-br-none'
                                         : 'bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 rounded-bl-none shadow-sm'
                                         }`}
                                 >
@@ -214,13 +214,13 @@ const Chatbot: React.FC = () => {
                                 onChange={(e) => setInputValue(e.target.value)}
                                 onKeyDown={handleKeyPress}
                                 placeholder="Type your question..."
-                                className="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="flex-1 p-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-gray-500"
                                 disabled={isLoading}
                             />
                             <button
                                 onClick={handleSendMessage}
                                 disabled={isLoading || !inputValue.trim()}
-                                className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                className="p-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                             >
                                 <Send size={20} />
                             </button>

@@ -65,12 +65,8 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
         >
-          <Button variant="solid" href="/cv.pdf">
-            View My Work
-          </Button>
-          <Button variant="outline" onClick={handleContactClick}>
-            Get In Touch
-          </Button>
+          
+    
         </motion.div>
 
         {/* Scroll indicator */}

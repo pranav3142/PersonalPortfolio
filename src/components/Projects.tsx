@@ -15,7 +15,7 @@ const projects: Project[] = [
   {
     id: 'prism',
     title: 'Prism',
-    description: 'HTX Microsoft Hacx hackathon 2025. A modern application for data visualization, analytics using edge AI with real-time collaboration features. Made for prisoner transport vehicles',
+    description: 'HTX Microsoft Hacx hackathon 2025. A modern application for data visualization, analytics using edge AI with real-time collaboration features. Made for prisoner transport vehicles.',
     image: '/projects/Prism.webp',
     techStack: ['React', 'TypeScript', 'Vite', 'Azure', 'PostgreSQL'],
     badge: '2nd place winners',

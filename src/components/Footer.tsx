@@ -18,13 +18,13 @@ export function Footer() {
   const heartAnimation = prefersReducedMotion
     ? {}
     : {
-        scale: [1, 1.2, 1],
-        transition: {
-          duration: 1.5,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        },
-      };
+      scale: [1, 1.2, 1],
+      transition: {
+        duration: 1.5,
+        repeat: Infinity,
+        ease: 'easeInOut',
+      },
+    };
 
   return (
     <footer className="relative border-t border-gray-200 bg-white">
@@ -96,6 +96,53 @@ export function Footer() {
             >
               Contact
             </a>
+          </motion.div>
+
+          {/* Credits */}
+          <motion.div
+            className="text-gray-400 text-[10px] font-light mt-4"
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 10 }}
+            whileInView={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <p>
+              <a
+                href="https://sketchfab.com/3d-models/snowy-mountain-76619a9fb77d465b863b1e69ce03f947"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-600 transition-colors"
+              >
+                Snowy-mountain
+              </a>{' '}
+              by{' '}
+              <a
+                href="https://sketchfab.com/hirnlaich"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-600 transition-colors"
+              >
+                hirnlaich
+              </a>{' '}
+              on{' '}
+              <a
+                href="https://sketchfab.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-600 transition-colors"
+              >
+                Sketchfab
+              </a>{' '}
+              licensed under{' '}
+              <a
+                href="https://creativecommons.org/licenses/by/4.0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-gray-600 transition-colors"
+              >
+                CC BY 4.0
+              </a>
+            </p>
           </motion.div>
         </div>
       </div>

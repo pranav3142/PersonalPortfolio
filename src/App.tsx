@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useMediaQuery } from './hooks';
+
 import {
   LoadingScreen,
-  CustomCursor,
   Navigation,
   Hero,
   About,
@@ -18,7 +17,7 @@ import { ThreeBackground } from './components/ThreeBackground';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const isDesktop = useMediaQuery('(min-width: 1024px)');
+
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -34,8 +33,7 @@ function App() {
       {/* Loading Screen - conditionally displayed */}
       {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
 
-      {/* Custom Cursor - conditionally rendered for desktop only */}
-      {isDesktop && <CustomCursor />}
+
 
       {/* Three.js Background */}
       <ThreeBackground />
