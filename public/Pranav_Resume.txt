@@ -4,8 +4,8 @@ JAMUNARANI PRABHU PRANAV
 EDUCATION
 National University of Singapore (NUS) Aug 2024 - May 2028
 Bachelor of Computing in Computer Science
-Computer Science GPA: 4.33/5.0
-Relevant Courses: CP2106 Independent Software Development Project (Orbital), CS2103T Software Engineering, CS2030S Programming Methodology II, CS2040S Data Structures and Algorithms, CS1101S Programming Methodology, CS2100 Computer Organisation, ST2334 Probability and Statistics, CS1231S Discrete Structures, MA1522 Linear Algebra for Computing, MA1521 Calculus for Computing
+Computer Science GPA: 4.41/5.0
+Relevant Courses: Independent Software Development Project (Orbital), Software Engineering, Programming Methodology II, Data Structures and Algorithms, Computer Organisation, Probability and Statistics, Linear Algebra, Calculus for Computing
 Activities: NUS Climbing Club, NUS Computing Society
 
 Nanyang Junior College | Singapore Jan 2020 - Dec 2021
@@ -19,12 +19,15 @@ Coding & Robotics Tutor
 * Taught Python, Blender 3D modelling, JavaScript and other block-based coding to students
 * Became MOE registered Instructor
 * Coached a class of students for the Coding Olympics Singapore
+* Delivered engaging lessons to a class of 20 students as an MOE registered instructor for Coding Olympics
+* Fostered a collaborative learning environment, encouraging teamwork and problem-solving skills among students
 
 PROJECTS & HACKATHONS: 
 PRISM (Prison vehicle management)
 Swolemates
 Crisis Trainer+
 Compostiq bin
+Machine Learning Exercise Pose (Real-Time Exercise Pose Clarification and Rep Counting)
 
 Swolemates | AI – powered Social fitness tracking App May 2025 - Aug 2025
 CP2106 Independent Software Development Project (Orbital) - Apollo 11 (2nd highest achievement)
@@ -48,13 +51,31 @@ NUS IDP IDEATE Ideathon
 * A sustainability initiative to tackle the problem of food waste in Singapore
 * Interviewed with NEA to research on food waste problems and shortcomings in current solutions
 
+Prisoner Risk & Safety Monitoring System
+* Event:HACX HTX & Microsoft Hackathon (2nd Place Winners)
+* Date: Nov 2025
+* Details:
+  * Designed a transport safety system utilising edge Al to process 360° video and vehicle telemetry locally, ensuring low latency and reduced bandwidth dependence.
+  * Established a privacy-first data pipeline processing sensitive audio/video on the edge.
+  * Developed a real-time dashboard using React, TypeScript, and Socket.io.
+  * Ensured high operational feasibility by designing a low-CAPEX "plug-and-play" hardware suite.
+  * Built a distributed loT system integrating TinyML on OBD-II dongles and wearable sensors.
+
+Machine Learning Exercise Pose (Real-Time Exercise Pose Clarification and Rep Counting)
+* Event: Personal project
+* Date: Nov 2025
+* Details:
+  * Trained and deployed a PyTorch MLP using scikit-learn for preprocessing; saved artifacts for production inference.
+  * Implemented client-side pose extraction with MediaPipe Pose and streamed 33 3D landmarks to a FastAPI inference for low-latency predictions.
+  * Designed an end-to-end training pipeline and serialized preprocessing for reproducible and swift deployment.
+
 TECHNICAL SKILLS
 Programming & Scripting: Java, Python, JavaScript, TypeScript, C, SQL, MIPS Assembly
 Frameworks & Tools: React Native (Expo), Firebase, Git, Flask
 Web & Data: HTML/CSS, Google Sheets Automation, Data Analysis, Supabase, PostgreSQL, MySQL
 Design & Prototyping: Figma, UI/UX Wireframing, UML Diagrams, Blender 3D animations
 Software Engineering Practices: Version Control (Git), Unit & Integration Testing
-AI / Machine Learning: Feature based recommendation System, Agentic AI using MCPs
+AI / Machine Learning: Feature based recommendation System, Agentic AI using MCPs, Rag systems
 
 CERTIFICATIONS
 International Quant Championship 2025 Top 20% globally for Stage 1 & Gold Achiever
