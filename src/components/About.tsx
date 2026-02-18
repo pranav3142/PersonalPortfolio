@@ -41,9 +41,9 @@ export function About() {
     },
     {
       icon: Users,
-      title: 'Education',
+      title: 'Artificial Intelligence & Machine Learning',
       description:
-        'Passionate about teaching coding and robotics to inspire the next generation.',
+        'Passionate about building intelligent systems that can learn and adapt.',
     },
     {
       icon: Lightbulb,

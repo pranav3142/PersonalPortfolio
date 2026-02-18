@@ -37,12 +37,20 @@ const projects: Project[] = [
     badge: 'Semi-Finalist',
   },
   {
+    id: 'exercise-pose-clarification',
+    title: 'MLExercise Pose Clarification',
+    description: 'End to End Machine Learning Project. Using Pytorch, MediaPipe Pose and FastAPI to provide feedback on user exercise form.',
+    image: '/projects/exercise-pose.png',
+    techStack: ['Python', 'MediaPipe Pose', 'PyTorch', 'FastAPI', 'PostgreSQL', 'scikit-learn'],
+  },
+  {
     id: 'movie-recc-telegram-bot',
     title: 'Movie Recomendation Telegram Bot',
     description: 'Using telegram bot API and cosine similarity to provide movie recomendations based on user input.',
     image: '/projects/MoviereccBott.webp',
     techStack: ['Python', 'Telegram Bot API', 'Cosine Similarity'],
   },
+
 
 ];
 
@@ -66,7 +74,7 @@ export function Projects() {
             Featured Projects
           </h2>
           <p className="text-gray-600 text-lg font-light max-w-2xl">
-            A selection of projects. View the full list of projects on my GitHub profile.
+            A selection of projects. View the full list of projects on my <a href="https://github.com/pranav3142" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-900 transition-colors">GitHub profile</a>.
           </p>
         </motion.div>
 
