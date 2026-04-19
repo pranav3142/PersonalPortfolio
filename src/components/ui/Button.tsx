@@ -7,12 +7,15 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   className?: string;
+  target?: string;
+  rel?: string;
+  download?: boolean | string;
 }
 
 const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
-  ({ variant = 'solid', children, onClick, href, className = '' }, ref) => {
+  ({ variant = 'solid', children, onClick, href, className = '', target, rel, download }, ref) => {
     const baseStyles = 'px-6 py-3 sm:px-8 sm:py-4 font-light transition-all duration-300 inline-flex items-center justify-center gap-2 text-sm sm:text-base uppercase tracking-wider';
-    
+
     const variantStyles = {
       solid: 'bg-gray-900 hover:bg-gray-800 text-white',
       outline: 'border border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'
@@ -31,6 +34,9 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
         <motion.a
           ref={ref as React.Ref<HTMLAnchorElement>}
           href={href}
+          target={target}
+          rel={rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined)}
+          download={download as unknown as string}
           className={combinedClassName}
           {...motionProps}
         >

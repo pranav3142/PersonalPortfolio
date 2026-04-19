@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Code2, Rocket, Users, Lightbulb } from 'lucide-react';
+import { Code2, Rocket, Brain, Lightbulb } from 'lucide-react';
 import { useReducedMotion } from '../hooks';
 import Card from './ui/Card';
 
@@ -40,10 +40,10 @@ export function About() {
         'Creating solutions that push boundaries and solve real-world problems.',
     },
     {
-      icon: Users,
+      icon: Brain,
       title: 'Artificial Intelligence & Machine Learning',
       description:
-        'Passionate about building intelligent systems that can learn and adapt.',
+        'Passionate about building intelligent systems — from RAG pipelines to end-to-end ML models that can learn and adapt.',
     },
     {
       icon: Lightbulb,
@@ -70,12 +70,14 @@ export function About() {
         <motion.div className="mb-12" {...fadeInUp} {...staggerDelay(0)}>
           <Card glassEffect>
             <p className="text-gray-700 text-lg sm:text-xl leading-relaxed font-light">
-              I'm a Computer Science student at the National University of Singapore,
+              I'm a Computer Science (Honours) student at the National University of Singapore,
               passionate about creating innovative solutions through technology. I strive to
-              build applications that make a meaningful impact. My journey in tech has
-              been driven by curiosity, creativity, and a commitment to continuous
-              learning. I am also passionate about sustainbility and love to work on projects that make a positive impact.
-              Find me out in nature exploring the world around me when I'm not coding.
+              build applications that make a meaningful impact — from edge AI systems for
+              public safety to AI-powered social fitness platforms. My journey in tech has
+              been driven by curiosity, creativity, and a commitment to continuous learning.
+              I'm also passionate about sustainability and love working on projects that make
+              a positive impact. When I'm not coding, you'll find me out in nature exploring
+              the world around me.
             </p>
           </Card>
         </motion.div>

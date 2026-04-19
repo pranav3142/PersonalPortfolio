@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase } from 'lucide-react';
+import { Briefcase, LineChart, Shield } from 'lucide-react';
 import { useReducedMotion } from '../hooks';
 import Accordion, { AccordionItem } from './ui/Accordion';
 
@@ -23,10 +23,45 @@ export function Experience() {
         transition: { duration: 0.6 },
       };
 
+  const bulletAnimation = (delay: number) => ({
+    className: 'flex items-start gap-3',
+    initial: prefersReducedMotion ? {} : { opacity: 0, x: -10 },
+    animate: { opacity: 1, x: 0 },
+    transition: { delay },
+  });
+
   const experienceItems: AccordionItem[] = [
     {
+      title: 'Research Consultant',
+      subtitle: 'WorldQuant BRAIN • Jul 2025 – Jan 2026',
+      icon: <LineChart size={24} />,
+      content: (
+        <motion.ul
+          className="space-y-3 text-gray-700"
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.1 }}
+        >
+          <motion.li {...bulletAnimation(0.1)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Optimised alpha signals through iterative testing of decay,
+              neutralisation and risk constraints to enhance Sharpe ratio.
+            </span>
+          </motion.li>
+          <motion.li {...bulletAnimation(0.2)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Placed Top 20% globally (Gold Achiever) in the International
+              Quant Championship 2025 Stage 1.
+            </span>
+          </motion.li>
+        </motion.ul>
+      ),
+    },
+    {
       title: 'Coding & Robotics Tutor',
-      subtitle: 'Empire Code • May–Aug 2024',
+      subtitle: 'Empire Code • May – Aug 2024',
       icon: <Briefcase size={24} />,
       content: (
         <motion.ul
@@ -35,40 +70,53 @@ export function Experience() {
           animate={{ opacity: 1 }}
           transition={{ staggerChildren: 0.1 }}
         >
-          <motion.li
-            className="flex items-start gap-3"
-            initial={prefersReducedMotion ? {} : { opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
-          >
+          <motion.li {...bulletAnimation(0.1)}>
             <span className="text-gray-900 mt-1.5">•</span>
             <span>
               Taught Python, JavaScript, Blender, and block-based coding to students
-              of various age groups and skill levels
+              of various age groups and skill levels.
             </span>
           </motion.li>
-          <motion.li
-            className="flex items-start gap-3"
-            initial={prefersReducedMotion ? {} : { opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-          >
+          <motion.li {...bulletAnimation(0.2)}>
             <span className="text-gray-900 mt-1.5">•</span>
             <span>
               Achieved MOE (Ministry of Education) instructor status, demonstrating
-              commitment to educational excellence
+              commitment to educational excellence.
             </span>
           </motion.li>
-          <motion.li
-            className="flex items-start gap-3"
-            initial={prefersReducedMotion ? {} : { opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.3 }}
-          >
+          <motion.li {...bulletAnimation(0.3)}>
             <span className="text-gray-900 mt-1.5">•</span>
             <span>
               Coached students for Coding Olympics SG, fostering competitive
-              programming skills and problem-solving abilities
+              programming skills and problem-solving abilities.
+            </span>
+          </motion.li>
+        </motion.ul>
+      ),
+    },
+    {
+      title: 'Info-comms Specialist, SGT(1)',
+      subtitle: 'Singapore Civil Defence Force (SCDF) • Jan 2022 – Dec 2023',
+      icon: <Shield size={24} />,
+      content: (
+        <motion.ul
+          className="space-y-3 text-gray-700"
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.1 }}
+        >
+          <motion.li {...bulletAnimation(0.1)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Completed two years of National Service as an Info-comms
+              Specialist, maintaining critical communications infrastructure.
+            </span>
+          </motion.li>
+          <motion.li {...bulletAnimation(0.2)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Led and coordinated teams under high-pressure operational
+              conditions, strengthening leadership and discipline.
             </span>
           </motion.li>
         </motion.ul>

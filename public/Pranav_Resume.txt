@@ -1,83 +1,76 @@
-JAMUNARANI PRABHU PRANAV
- e1384377@u.nus.edu | www.linkedin.com/in/jppranav07 | github.com/pranav3142
+JP PRANAV
++65 91090048 | e1384377@u.nus.edu | www.linkedin.com/in/jppranav07 | github.com/pranav3142 | https://pranavjp.vercel.app
 
 EDUCATION
 National University of Singapore (NUS) Aug 2024 - May 2028
-Bachelor of Computing in Computer Science
-Computer Science GPA: 4.41/5.0
-Relevant Courses: Independent Software Development Project (Orbital), Software Engineering, Programming Methodology II, Data Structures and Algorithms, Computer Organisation, Probability and Statistics, Linear Algebra, Calculus for Computing
-Activities: NUS Climbing Club, NUS Computing Society
-
-Nanyang Junior College | Singapore Jan 2020 - Dec 2021
-A-Level Results: 88.75 RP
-Subjects: Biology, Mathematics, Economics, Chemistry
-Activities: Outdoor Adventure Club, Nanyang vertical challenge Organiser
+Bachelor of Computing, Computer Science (Honours)
+- Computer Science GPA: 4.41/5.0 Honours (Distinction)
+- Relevant Courses: Independent Software Development Project (Orbital), Software Engineering, Data Structures and Algorithms, Computer Organisation, Probability & Statistics, Linear Algebra, Calculus, Introduction to AI and ML, Operating System, Computer Networks
 
 PROFESSIONAL EXPERIENCE
-Empire code | Singapore May 2024 - August 2024
+
+Empire Code | Singapore May 2024 - Aug 2024
 Coding & Robotics Tutor
-* Taught Python, Blender 3D modelling, JavaScript and other block-based coding to students
-* Became MOE registered Instructor
-* Coached a class of students for the Coding Olympics Singapore
-* Delivered engaging lessons to a class of 20 students as an MOE registered instructor for Coding Olympics
-* Fostered a collaborative learning environment, encouraging teamwork and problem-solving skills among students
+- Delivered comprehensive technical instruction in foundational software development, encompassing Python, JavaScript, and Blender 3D modelling, to diverse student groups.
+- Cultivated a collaborative, project-driven learning environment that accelerated student comprehension of complex programming logic and systematic problem-solving methodologies.
+- Directed hands-on technical workshops and training for the Coding Olympics as an MOE registered instructor.
 
-PROJECTS & HACKATHONS: 
-PRISM (Prison vehicle management)
-Swolemates
-Crisis Trainer+
-Compostiq bin
-Machine Learning Exercise Pose (Real-Time Exercise Pose Clarification and Rep Counting)
+WorldQuant BRAIN July 2025 – Jan 2026
+Research Consultant
+- Optimised alpha signals through iterative testing of decay, neutralisation and risk constraints to enhance Sharpe ratio.
 
-Swolemates | AI – powered Social fitness tracking App May 2025 - Aug 2025
+Singapore Civil Defence Force (SCDF) Jan 2022 – Dec 2023
+National Service – Info-comms Specialist SGT(1)
+
+PROJECTS & HACKATHONS
+
+HacX Microsoft & HTX Hackathon | 2nd Place Winners Nov 2025
+Prisoner Risk & Safety Monitoring System (PRISM)
+- Designed a transport safety system utilising edge AI to process 360° video and vehicle telemetry locally, ensuring low latency and reduced network bandwidth dependence.
+- Architected a privacy-first data pipeline processing sensitive audio/video directly at the edge, rather than relying on cloud infrastructure and keeping to strict privacy and ethical guidelines.
+- Built a distributed IoT system integrating TinyML on OBD-II dongles and wearable sensors, successfully bridging sophisticated machine learning models with robust physical hardware to guarantee high operation feasibility.
+
+Swolemates | AI & ML Powered Social Fitness Tracking App May 2025 - Aug 2025
 CP2106 Independent Software Development Project (Orbital) - Apollo 11 (2nd highest achievement)
-* Full Stack engineering of a cross-platform mobile app
-* Created front-end UI/UX with React Native and Expo Router
-* Implemented FastAPI backend
-* Integrated Machine Learning models for Buddy matching feature
-* Designed AI workout generator using Google Gemini Flash
-* Managed large scale relational databases using Firebase and Supabase with PostgreSQL
-* Applied software engineering testing practices (unit, integration and regression testing)
+- Full Stack engineering of a cross-platform mobile app, delivering a seamless responsive user experience.
+- Integrated Machine Learning model using scikit-learn TF-IDF and cosine similarity for accurate buddy matching.
+- Integrated the Google Gemini Flash LLM to architect a dynamic workout generator tailored to individuals.
+- Managed scalable databases Firebase and Supabase with PostgreSQL, for complex relational data.
+- Implemented software engineering QA protocols (unit, integration and regression testing) ready for production.
 
-Crisis Trainer+ | Crisis trainer and reporting app June 2025
+Exercise Pose | End-to-End Machine Learning Pose Detection Nov 2025
+Personal Project
+- Trained and deployed a PyTorch MLP using scikit-learn for preprocessing, saved artifacts for production inference.
+- Implemented client-side pose extraction with MediaPipe Pose and streamed 3D landmarks to FastAPI inference for low-latency predictions.
+- Architected an end-to-end Machine Learning training pipeline with serialized preprocessing, ensuring seamless reproducibility and swift, scalable deployment.
+
+AI RAG Chatbot | Personal Portfolio Page Jan 2026
+Personal Project
+- Engineered a context-aware Retrieval-Augmented Generation (RAG) chatbot using the Gemini API to drive user interactions.
+- Designed robust LLM guardrails and query sanitization pipelines, successfully preventing reasoning leaks and ensuring secure, controlled responses.
+
+Crisis Trainer+ | Crisis Trainer and Reporting App June 2025
 DSTA CODE_EXP Hackathon – Semi Finalists
-* Mobile training platform to teach users how to respond, report and recover from emergencies
-* Designed intuitive UI/UX flow to allow everyday civilians to navigate the app
-* Functioned in a team-based, fast-paced hackathon environment to deliver a functional product
-* Created low-fidelity wireframes to map user flow and refined it in Figma
+- Mobile training platform to teach users how to respond, report and recover from emergencies.
+- Designed intuitive UI/UX flow to allow everyday civilians to navigate the app.
+- Functioned in a team-based, fast-paced hackathon environment to deliver a functional product.
+- Created low-fidelity wireframes to map user flow and refined it in Figma.
 
-Compostiq bin | smart compost bin design Aug 2025
+Compostiq Bin | Smart Compost Bin Design Aug 2025
 NUS IDP IDEATE Ideathon
-* A sustainability initiative to tackle the problem of food waste in Singapore
-* Interviewed with NEA to research on food waste problems and shortcomings in current solutions
-
-Prisoner Risk & Safety Monitoring System
-* Event:HACX HTX & Microsoft Hackathon (2nd Place Winners)
-* Date: Nov 2025
-* Details:
-  * Designed a transport safety system utilising edge Al to process 360° video and vehicle telemetry locally, ensuring low latency and reduced bandwidth dependence.
-  * Established a privacy-first data pipeline processing sensitive audio/video on the edge.
-  * Developed a real-time dashboard using React, TypeScript, and Socket.io.
-  * Ensured high operational feasibility by designing a low-CAPEX "plug-and-play" hardware suite.
-  * Built a distributed loT system integrating TinyML on OBD-II dongles and wearable sensors.
-
-Machine Learning Exercise Pose (Real-Time Exercise Pose Clarification and Rep Counting)
-* Event: Personal project
-* Date: Nov 2025
-* Details:
-  * Trained and deployed a PyTorch MLP using scikit-learn for preprocessing; saved artifacts for production inference.
-  * Implemented client-side pose extraction with MediaPipe Pose and streamed 33 3D landmarks to a FastAPI inference for low-latency predictions.
-  * Designed an end-to-end training pipeline and serialized preprocessing for reproducible and swift deployment.
+- A sustainability initiative to tackle the problem of food waste in Singapore.
+- Interviewed with NEA to research on food waste problems and shortcomings in current solutions.
 
 TECHNICAL SKILLS
-Programming & Scripting: Java, Python, JavaScript, TypeScript, C, SQL, MIPS Assembly
-Frameworks & Tools: React Native (Expo), Firebase, Git, Flask
-Web & Data: HTML/CSS, Google Sheets Automation, Data Analysis, Supabase, PostgreSQL, MySQL
+Programming: Java, Python, JavaScript, TypeScript, C, SQL, MIPS Assembly, React Native (Expo), Firebase, Git, Flask
 Design & Prototyping: Figma, UI/UX Wireframing, UML Diagrams, Blender 3D animations
-Software Engineering Practices: Version Control (Git), Unit & Integration Testing
-AI / Machine Learning: Feature based recommendation System, Agentic AI using MCPs, Rag systems
+Software Engineering Practices: Git, Unit, Regression, Integration Testing, UML Framework, Research, Data analytics
+AI / Machine Learning: Feature based recommendation System, Agentic AI using MCPs, RAG system, Pandas, PyTorch
+Transferrable: Adaptability, Teamwork, Leadership, Communication, Problem Solving, Analytical, Critical Thinking
 
 CERTIFICATIONS
-International Quant Championship 2025 Top 20% globally for Stage 1 & Gold Achiever
-Research Consultant for WorldQuant BRAIN
-Harvard CS50
+- DSTA CODE_EXP Finalist
+- International Quant Championship 2025 Top 20%
+- Microsoft & HTX Hackathon Winner (2nd Place)
+- NTU Deep Learning Week Finalist
+- Harvard CS50

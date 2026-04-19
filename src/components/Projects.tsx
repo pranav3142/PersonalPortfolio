@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Medal } from 'lucide-react';
+import { Medal, ExternalLink } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -14,44 +14,50 @@ interface Project {
 const projects: Project[] = [
   {
     id: 'prism',
-    title: 'Prism',
-    description: 'HTX Microsoft Hacx hackathon 2025. A modern application for data visualization, analytics using edge AI with real-time collaboration features. Made for prisoner transport vehicles.',
+    title: 'PRISM',
+    description: 'HacX Microsoft & HTX Hackathon 2025. A prisoner transport safety system using edge AI to process 360° video and vehicle telemetry locally, with TinyML on OBD-II dongles and wearable sensors for high operational feasibility.',
     image: '/projects/Prism.webp',
-    techStack: ['React', 'TypeScript', 'Vite', 'Azure', 'PostgreSQL'],
-    badge: '2nd place winners',
+    techStack: ['Edge AI', 'TinyML', 'React', 'TypeScript', 'Socket.io', 'IoT'],
+    badge: '2nd Place Winner',
   },
   {
     id: 'swolemates',
     title: 'Swolemates',
-    description: 'Made for CP2106 Independent Software Development Project Fitness tracking and social platform connecting workout enthusiasts. Personalized AI workout generator and smart buddy matching using ML reccomendation system.',
+    description: 'Built for CP2106 Independent Software Development Project (Orbital). A full-stack social fitness tracking app with an AI workout generator powered by Google Gemini Flash and ML-based buddy matching using TF-IDF and cosine similarity.',
     image: '/projects/swolemates.webp',
-    techStack: ['React Native', 'Node.js', 'Supabase', 'Firebase', 'Expo', 'FastAPI', 'Gemini API', 'PostgreSQL'],
-    badge: 'Apollo level of achievement',
+    techStack: ['React Native', 'Expo', 'FastAPI', 'Supabase', 'Firebase', 'Gemini API', 'PostgreSQL', 'scikit-learn'],
+    badge: 'Apollo 11 Achievement',
+  },
+  {
+    id: 'exercise-pose',
+    title: 'ML Exercise Pose Detection',
+    description: 'End-to-end machine learning project for real-time exercise pose classification and rep counting. Uses PyTorch MLP with scikit-learn preprocessing and MediaPipe Pose for client-side 3D landmark extraction streamed to FastAPI.',
+    image: '/projects/exercise-pose.png',
+    techStack: ['Python', 'PyTorch', 'MediaPipe', 'FastAPI', 'scikit-learn'],
+  },
+  {
+    id: 'ai-rag-chatbot',
+    title: 'AI RAG Chatbot',
+    description: 'The chatbot powering this portfolio page. A context-aware Retrieval-Augmented Generation (RAG) assistant built with the Gemini API, featuring robust LLM guardrails and query sanitization pipelines to prevent reasoning leaks.',
+    image: '/projects/ai-rag-chatbot.webp',
+    techStack: ['TypeScript', 'React', 'Gemini API', 'RAG', 'Vite'],
+    badge: 'Live on this site',
   },
   {
     id: 'crisis-trainer',
     title: 'Crisis Trainer+',
-    description: 'Made for DSTA BrainHack hackathon 2025. Interactive training platform for emergency response scenarios with AI-powered feedback and assessment.',
+    description: 'Built for the DSTA CODE_EXP Hackathon. Mobile training platform teaching civilians how to respond, report, and recover from emergencies, with intuitive UI/UX flows designed in Figma.',
     image: '/projects/crisistrainer.webp',
-    techStack: ['React', 'FastAPI', 'TensorFlow', 'PostgreSQL'],
+    techStack: ['React Native', 'FastAPI', 'Figma', 'PostgreSQL'],
     badge: 'Semi-Finalist',
   },
   {
-    id: 'exercise-pose-clarification',
-    title: 'MLExercise Pose Clarification',
-    description: 'End to End Machine Learning Project. Using Pytorch, MediaPipe Pose and FastAPI to provide feedback on user exercise form.',
-    image: '/projects/exercise-pose.png',
-    techStack: ['Python', 'MediaPipe Pose', 'PyTorch', 'FastAPI', 'PostgreSQL', 'scikit-learn'],
-  },
-  {
     id: 'movie-recc-telegram-bot',
-    title: 'Movie Recomendation Telegram Bot',
-    description: 'Using telegram bot API and cosine similarity to provide movie recomendations based on user input.',
+    title: 'Movie Recommendation Telegram Bot',
+    description: 'A Telegram bot that suggests movies based on user preferences, using the Telegram Bot API and cosine similarity to rank recommendations.',
     image: '/projects/MoviereccBott.webp',
     techStack: ['Python', 'Telegram Bot API', 'Cosine Similarity'],
   },
-
-
 ];
 
 /**
@@ -109,11 +115,24 @@ export function Projects() {
                 {/* Project content */}
                 <div className="p-6 lg:p-8">
                   <div className="text-xs uppercase tracking-wider text-gray-500 mb-2 font-light">
-                    {project.techStack[0]} • {project.techStack[1]}
+                    {project.techStack.slice(0, 2).join(' • ')}
                   </div>
-                  <h3 className="text-xl lg:text-2xl font-light text-gray-900 mb-3">
-                    {project.title}
-                  </h3>
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <h3 className="text-xl lg:text-2xl font-light text-gray-900">
+                      {project.title}
+                    </h3>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-500 hover:text-gray-900 transition-colors flex-shrink-0 mt-1"
+                        aria-label={`View ${project.title} project`}
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
                   <p className="text-gray-600 font-light leading-relaxed mb-4">
                     {project.description}
                   </p>
@@ -123,7 +142,7 @@ export function Projects() {
                     {project.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs px-3 py-1 bg-gray-100 text-gray-700 font-light"
+                        className="text-xs px-3 py-1 bg-gray-100 text-gray-700 font-light rounded"
                       >
                         {tech}
                       </span>

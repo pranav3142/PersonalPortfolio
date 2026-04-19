@@ -1,0 +1,76 @@
+JP PRANAV
++65 91090048 | e1384377@u.nus.edu | www.linkedin.com/in/jppranav07 | github.com/pranav3142 | https://pranavjp.vercel.app
+
+EDUCATION
+National University of Singapore (NUS) Aug 2024 - May 2028
+Bachelor of Computing, Computer Science (Honours)
+- Computer Science GPA: 4.41/5.0 Honours (Distinction)
+- Relevant Courses: Independent Software Development Project (Orbital), Software Engineering, Data Structures and Algorithms, Computer Organisation, Probability & Statistics, Linear Algebra, Calculus, Introduction to AI and ML, Operating System, Computer Networks
+
+PROFESSIONAL EXPERIENCE
+
+Empire Code | Singapore May 2024 - Aug 2024
+Coding & Robotics Tutor
+- Delivered comprehensive technical instruction in foundational software development, encompassing Python, JavaScript, and Blender 3D modelling, to diverse student groups.
+- Cultivated a collaborative, project-driven learning environment that accelerated student comprehension of complex programming logic and systematic problem-solving methodologies.
+- Directed hands-on technical workshops and training for the Coding Olympics as an MOE registered instructor.
+
+WorldQuant BRAIN July 2025 – Jan 2026
+Research Consultant
+- Optimised alpha signals through iterative testing of decay, neutralisation and risk constraints to enhance Sharpe ratio.
+
+Singapore Civil Defence Force (SCDF) Jan 2022 – Dec 2023
+National Service – Info-comms Specialist SGT(1)
+
+PROJECTS & HACKATHONS
+
+HacX Microsoft & HTX Hackathon | 2nd Place Winners Nov 2025
+Prisoner Risk & Safety Monitoring System (PRISM)
+- Designed a transport safety system utilising edge AI to process 360° video and vehicle telemetry locally, ensuring low latency and reduced network bandwidth dependence.
+- Architected a privacy-first data pipeline processing sensitive audio/video directly at the edge, rather than relying on cloud infrastructure and keeping to strict privacy and ethical guidelines.
+- Built a distributed IoT system integrating TinyML on OBD-II dongles and wearable sensors, successfully bridging sophisticated machine learning models with robust physical hardware to guarantee high operation feasibility.
+
+Swolemates | AI & ML Powered Social Fitness Tracking App May 2025 - Aug 2025
+CP2106 Independent Software Development Project (Orbital) - Apollo 11 (2nd highest achievement)
+- Full Stack engineering of a cross-platform mobile app, delivering a seamless responsive user experience.
+- Integrated Machine Learning model using scikit-learn TF-IDF and cosine similarity for accurate buddy matching.
+- Integrated the Google Gemini Flash LLM to architect a dynamic workout generator tailored to individuals.
+- Managed scalable databases Firebase and Supabase with PostgreSQL, for complex relational data.
+- Implemented software engineering QA protocols (unit, integration and regression testing) ready for production.
+
+Exercise Pose | End-to-End Machine Learning Pose Detection Nov 2025
+Personal Project
+- Trained and deployed a PyTorch MLP using scikit-learn for preprocessing, saved artifacts for production inference.
+- Implemented client-side pose extraction with MediaPipe Pose and streamed 3D landmarks to FastAPI inference for low-latency predictions.
+- Architected an end-to-end Machine Learning training pipeline with serialized preprocessing, ensuring seamless reproducibility and swift, scalable deployment.
+
+AI RAG Chatbot | Personal Portfolio Page Jan 2026
+Personal Project
+- Engineered a context-aware Retrieval-Augmented Generation (RAG) chatbot using the Gemini API to drive user interactions.
+- Designed robust LLM guardrails and query sanitization pipelines, successfully preventing reasoning leaks and ensuring secure, controlled responses.
+
+Crisis Trainer+ | Crisis Trainer and Reporting App June 2025
+DSTA CODE_EXP Hackathon – Semi Finalists
+- Mobile training platform to teach users how to respond, report and recover from emergencies.
+- Designed intuitive UI/UX flow to allow everyday civilians to navigate the app.
+- Functioned in a team-based, fast-paced hackathon environment to deliver a functional product.
+- Created low-fidelity wireframes to map user flow and refined it in Figma.
+
+Compostiq Bin | Smart Compost Bin Design Aug 2025
+NUS IDP IDEATE Ideathon
+- A sustainability initiative to tackle the problem of food waste in Singapore.
+- Interviewed with NEA to research on food waste problems and shortcomings in current solutions.
+
+TECHNICAL SKILLS
+Programming: Java, Python, JavaScript, TypeScript, C, SQL, MIPS Assembly, React Native (Expo), Firebase, Git, Flask
+Design & Prototyping: Figma, UI/UX Wireframing, UML Diagrams, Blender 3D animations
+Software Engineering Practices: Git, Unit, Regression, Integration Testing, UML Framework, Research, Data analytics
+AI / Machine Learning: Feature based recommendation System, Agentic AI using MCPs, RAG system, Pandas, PyTorch
+Transferrable: Adaptability, Teamwork, Leadership, Communication, Problem Solving, Analytical, Critical Thinking
+
+CERTIFICATIONS
+- DSTA CODE_EXP Finalist
+- International Quant Championship 2025 Top 20%
+- Microsoft & HTX Hackathon Winner (2nd Place)
+- NTU Deep Learning Week Finalist
+- Harvard CS50

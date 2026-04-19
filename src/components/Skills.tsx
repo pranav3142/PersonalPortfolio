@@ -28,23 +28,23 @@ export function Skills() {
     },
     {
       category: 'Frameworks & Tools',
-      skills: ['React Native (Expo)', 'Firebase', 'Git', 'Flask']
+      skills: ['React', 'React Native (Expo)', 'FastAPI', 'Flask', 'Firebase', 'Git', 'Vite']
     },
     {
       category: 'Web & Data',
-      skills: ['HTML/CSS', 'Google Sheets Automation', 'Data Analysis', 'Supabase', 'PostgreSQL', 'MySQL']
-    },
-    {
-      category: 'Design & Prototyping',
-      skills: ['Figma', 'UI/UX Wireframing', 'UML Diagrams', 'Blender 3D animations']
-    },
-    {
-      category: 'Software Engineering Practices',
-      skills: ['Version Control (Git)', 'Testing', 'Agile workflows']
+      skills: ['HTML/CSS', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'MySQL', 'Google Sheets Automation', 'Data Analysis']
     },
     {
       category: 'AI / Machine Learning',
-      skills: ['Feature based recommendation System', 'Agentic AI', 'Q&A RAG system']
+      skills: ['PyTorch', 'scikit-learn', 'Pandas', 'MediaPipe', 'RAG Systems', 'Agentic AI (MCPs)', 'Recommendation Systems']
+    },
+    {
+      category: 'Design & Prototyping',
+      skills: ['Figma', 'UI/UX Wireframing', 'UML Diagrams', 'Blender 3D']
+    },
+    {
+      category: 'Software Engineering Practices',
+      skills: ['Git', 'Unit Testing', 'Integration Testing', 'Regression Testing', 'UML Framework', 'Agile Workflows']
     },
   ];
 

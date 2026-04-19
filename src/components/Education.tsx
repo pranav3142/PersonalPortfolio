@@ -51,7 +51,7 @@ export function Education() {
               <div className="flex-1 w-full">
                 <div className="flex flex-col gap-2 mb-3">
                   <h3 className="text-xl sm:text-2xl font-light text-gray-900">
-                    Bachelor of Computing in Computer Science
+                    Bachelor of Computing, Computer Science (Honours)
                   </h3>
                   <span className="text-gray-600 font-light text-sm sm:text-base">
                     Aug 2024 – May 2028
@@ -63,6 +63,16 @@ export function Education() {
                 <p className="text-sm sm:text-base text-gray-600 font-light">
                   National University of Singapore
                 </p>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <span className="text-xs px-3 py-1 bg-gray-900 text-white font-light rounded">
+                    CS GPA 4.41 / 5.0
+                  </span>
+                  <span className="text-xs px-3 py-1 bg-gray-100 text-gray-800 font-light rounded">
+                    Honours (Distinction)
+                  </span>
+                </div>
+
                 <div className="mt-4 pt-4 border-t border-gray-100">
                   <p className="text-sm text-gray-800 font-medium mb-2">Relevant Courses:</p>
                   <p className="text-sm text-gray-600 font-light leading-relaxed">
@@ -72,6 +82,16 @@ export function Education() {
                     CS2100 Computer Organisation,
                     ST2334 Probability and Statistics,
                     MA1522 Linear Algebra for Computing, MA1521 Calculus for Computing
+                  </p>
+                </div>
+
+                <div className="mt-4 pt-4 border-t border-gray-100">
+                  <p className="text-sm text-gray-800 font-medium mb-2">Activities & Recognition:</p>
+                  <p className="text-sm text-gray-600 font-light leading-relaxed">
+                    NUS Climbing Club • NUS Computing Society •
+                    International Quant Championship 2025 Top 20% (Gold Achiever) •
+                    Microsoft &amp; HTX Hackathon 2nd Place • DSTA CODE_EXP Finalist •
+                    NTU Deep Learning Week Finalist
                   </p>
                 </div>
               </div>

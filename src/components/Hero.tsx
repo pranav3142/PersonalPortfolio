@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Download, Mail } from 'lucide-react';
+import Button from './ui/Button';
 
 /**
  * Hero component with particle text effect and typewriter animation
@@ -43,7 +44,7 @@ export function Hero() {
           transition={{ delay: 0.3, duration: 0.8 }}
         >
           <p className="text-xl sm:text-2xl text-gray-700 font-light leading-relaxed max-w-3xl">
-            with a passion for creating innovative sustainable solutions through full-stack development, AI & ML and hardware integration.
+            Computer Science student at NUS with a passion for creating innovative, sustainable solutions through full-stack development, AI &amp; ML, and hardware integration.
           </p>
         </motion.div>
 
@@ -54,8 +55,22 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
         >
-          
-    
+          <Button
+            href="/Pranav_Resume.txt"
+            variant="solid"
+            target="_blank"
+            download
+          >
+            <Download size={18} />
+            Download Resume
+          </Button>
+          <Button
+            href="#contact"
+            variant="outline"
+          >
+            <Mail size={18} />
+            Contact Me
+          </Button>
         </motion.div>
 
         {/* Scroll indicator */}
