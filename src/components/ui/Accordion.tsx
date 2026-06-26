@@ -29,7 +29,7 @@ const Accordion: React.FC<AccordionProps> = ({ items, className = '' }) => {
         return (
           <motion.div
             key={index}
-            className="glass rounded-xl overflow-hidden hover:shadow-lg hover:shadow-purple-500/10 transition-shadow duration-300"
+            className="glass rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300"
             whileHover={{ y: -2 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           >

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Briefcase, LineChart, Shield } from 'lucide-react';
+import { Briefcase, Cpu, LineChart, Shield } from 'lucide-react';
 import { useReducedMotion } from '../hooks';
 import Accordion, { AccordionItem } from './ui/Accordion';
 
@@ -31,6 +31,62 @@ export function Experience() {
   });
 
   const experienceItems: AccordionItem[] = [
+    {
+      title: 'Machine Learning Engineering Intern — Privacy-Preserving ML (FHE)',
+      subtitle: 'Implicant Pte. Ltd. (NTU Deep-Tech Spin-off) • May 2026 – Present',
+      icon: <Cpu size={24} />,
+      content: (
+        <motion.ul
+          className="space-y-3 text-gray-700"
+          initial={prefersReducedMotion ? {} : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ staggerChildren: 0.1 }}
+        >
+          <motion.li {...bulletAnimation(0.1)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Trained and validated TT-Sparse classification models on public
+              financial datasets (credit risk, transaction fraud, churn prediction),
+              benchmarking accuracy against XGBoost, LightGBM, and TabPFN baselines.
+            </span>
+          </motion.li>
+          <motion.li {...bulletAnimation(0.2)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Engineered the tabular feature-encoding pipeline converting raw
+              dataframes into binary truth-table inputs, implementing thermometer,
+              one-hot, and supervised target encoding while preserving ordinal
+              structure and model interpretability.
+            </span>
+          </motion.li>
+          <motion.li {...bulletAnimation(0.3)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Designed an information-theoretic bit-allocation scheme using Adjusted
+              Mutual Information (AMI) to set per-feature encoding resolution,
+              concentrating model capacity on predictive signals to minimise
+              inference cost under encryption.
+            </span>
+          </motion.li>
+          <motion.li {...bulletAnimation(0.4)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Optimised performance on severely imbalanced fraud datasets (~1%
+              positive class) through AUPRC-driven evaluation, class weighting, and
+              decision-threshold tuning to strengthen precision–recall trade-offs.
+            </span>
+          </motion.li>
+          <motion.li {...bulletAnimation(0.5)}>
+            <span className="text-gray-900 mt-1.5">•</span>
+            <span>
+              Implemented a feature-manifest layer mapping each binary input back to
+              a human-readable threshold predicate, enabling exact, regulation-ready
+              rule extraction from trained models.
+            </span>
+          </motion.li>
+        </motion.ul>
+      ),
+    },
     {
       title: 'Research Consultant',
       subtitle: 'WorldQuant BRAIN • Jul 2025 – Jan 2026',

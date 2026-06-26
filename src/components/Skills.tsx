@@ -28,7 +28,7 @@ export function Skills() {
     },
     {
       category: 'Frameworks & Tools',
-      skills: ['React', 'React Native (Expo)', 'FastAPI', 'Flask', 'Firebase', 'Git', 'Vite']
+      skills: ['React', 'React Native (Expo)', 'FastAPI', 'Flask', 'Firebase', 'Git', 'Vite', 'Linux', 'SSH / Remote Dev', 'tmux']
     },
     {
       category: 'Web & Data',
@@ -36,7 +36,34 @@ export function Skills() {
     },
     {
       category: 'AI / Machine Learning',
-      skills: ['PyTorch', 'scikit-learn', 'Pandas', 'MediaPipe', 'RAG Systems', 'Agentic AI (MCPs)', 'Recommendation Systems']
+      skills: [
+        'PyTorch',
+        'scikit-learn',
+        'Gradient-Boosted Decision Trees',
+        'Tabular Deep Learning',
+        'Sparse Neural Architectures',
+        'Ensemble Methods',
+        'Feature Engineering',
+        'Hyperparameter Optimisation',
+        'Model Evaluation & Benchmarking',
+        'Imbalanced-Data Handling',
+        'Data-Drift Monitoring',
+      ]
+    },
+    {
+      category: 'Privacy-Preserving & Interpretable ML',
+      skills: [
+        'Privacy-Preserving ML (Fully Homomorphic Encryption)',
+        'Truth-Table / Boolean-Circuit Networks',
+        'Differentiable Sparse Architectures (Soft TopK)',
+        'Feature Binarisation & Encoding',
+        'Information-Theoretic Bit-Allocation',
+        'Boolean Logic Minimisation',
+        'Accuracy–Complexity Pareto Optimisation',
+        'Rule Extraction & Explainability',
+        'Portable Rule-Set Serialisation',
+        'Information Theory (Mutual Information / Entropy)',
+      ]
     },
     {
       category: 'Design & Prototyping',

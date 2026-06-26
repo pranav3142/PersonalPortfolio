@@ -9,6 +9,20 @@ Bachelor of Computing, Computer Science (Honours)
 
 PROFESSIONAL EXPERIENCE
 
+Implicant Pte. Ltd. (NTU Deep-Tech Spin-off) May 2026 – Present
+Machine Learning Engineering Intern – Privacy-Preserving ML (Fully Homomorphic Encryption)
+Supervisor: Prof Thomas Peyrin (NTU). Research codebase shared with Hans, Hadrien and Eytan.
+- Worked in privacy-preserving machine learning, designing and encoding models that run directly on encrypted data under real Fully Homomorphic Encryption (FHE) constraints — binarising features after encryption and ensuring every feature can be encoded privately, which forces encodings to be both compact and structure-preserving.
+- Built end-to-end training pipelines for interpretable truth-table architectures (TT-Sparse / Learnable Truth Tables, LTT), where Learnable Truth Table nodes replace standard neural nodes as sparse boolean rules. Commands the full lifecycle: encode → train → prune → extract human-readable rules → infer.
+- Mastered the Soft TopK training trick that makes truth-table nodes trainable: hard top-k selection on the forward pass for true sparsity, with a differentiable relaxation on the backward pass for gradients. Tuned the governing hyperparameters — tau (soft-top-k temperature, training-only), n_bits (inputs per node) and num_nodes (layer width) — and experimented with tau-annealing schedules.
+- Absorbed and applied the theory from the TTnet paper: CNF transformation, the dual neural-weight / boolean-circuit representation, Quine–McCluskey rule minimisation, and the Pareto-frontier framing of accuracy versus rule complexity (including the architecture's limits).
+- Core contribution — feature encoding and binarisation: continuous-feature thermometer / vector binarisation (normalise first; encoding resolution capped around the ~9-bit signal plateau); an information-theoretic bit-allocation scheme using Adjusted Mutual Information (AMI) versus uniform allocation, spending bits only where there is predictive signal; and categorical encoding via clustering plus smoothed target encoding for high-cardinality columns. The throughline was maximising the AUC-to-rule-complexity ratio to keep models compact.
+- Training, tuning and benchmarking: ran grid search for hyperparameter optimisation and benchmarked TT-Sparse against XGBoost, LightGBM, tabM and the TabArena suite. Handled severely imbalanced data (~1% positive class) by comparing class weighting, SMOTE and undersampling — undersampling won. Datasets spanned diabetes, wine quality, road-safety, crime, IBM anti-money-laundering and bank-account fraud.
+- Model packaging and explainability: serialised trained models into portable rule sets (lookup tables, feature names and weights → pkl / JSON), contributed toward an explanation API surfacing feature importance, and explored early data-drift considerations for production monitoring.
+- Engineering, infrastructure and tooling: remote development over SSH on a Linux server, tmux session management (detach/attach, multi-pane, scrollback), Git workflow (branches, repo cleanup, pull requests), and NTU server / account / VPN setup, while navigating and extending an existing research codebase.
+- Applied theory: information theory (mutual information, entropy) and boolean logic put to practical use; statistics used to predict encoding resolution; structured requirements-gathering with the supervisor and researchers; and rigorous technical documentation (the formal encoder specification, ENCODING.md).
+- Most differentiated work: FHE-constrained feature encoding, the AMI bit-allocation scheme, Soft TopK / LTT fluency, and the Pareto / Quine–McCluskey interpretability framing.
+
 Empire Code | Singapore May 2024 - Aug 2024
 Coding & Robotics Tutor
 - Delivered comprehensive technical instruction in foundational software development, encompassing Python, JavaScript, and Blender 3D modelling, to diverse student groups.
@@ -65,7 +79,8 @@ TECHNICAL SKILLS
 Programming: Java, Python, JavaScript, TypeScript, C, SQL, MIPS Assembly, React Native (Expo), Firebase, Git, Flask
 Design & Prototyping: Figma, UI/UX Wireframing, UML Diagrams, Blender 3D animations
 Software Engineering Practices: Git, Unit, Regression, Integration Testing, UML Framework, Research, Data analytics
-AI / Machine Learning: Feature based recommendation System, Agentic AI using MCPs, RAG system, Pandas, PyTorch
+AI / Machine Learning: PyTorch, scikit-learn, Gradient-Boosted Decision Trees (XGBoost / LightGBM), Tabular Deep Learning (tabM / TabArena), Pandas, NumPy, Feature Engineering, Hyperparameter Optimisation, Ensemble Methods, Imbalanced-Data Handling (SMOTE / class weighting / undersampling), Model Evaluation & Benchmarking (AUPRC / AUC-ROC), Data-Drift Monitoring, RAG systems, Agentic AI (MCPs)
+Privacy-Preserving & Interpretable ML: Privacy-Preserving ML (Fully Homomorphic Encryption), Truth-Table / Boolean-Circuit Networks (TT-Sparse / LTT), Differentiable Sparse Architectures (Soft TopK), Feature Binarisation & Encoding (thermometer / vector), Information-Theoretic Bit-Allocation (Adjusted Mutual Information), Smoothed Target Encoding (high-cardinality), CNF Transformation, Boolean Logic Minimisation (Quine–McCluskey), Accuracy–Complexity Pareto Optimisation, Rule Extraction & Explainability, Portable Rule-Set Serialisation (pkl / JSON), Information Theory (mutual information, entropy)
 Transferrable: Adaptability, Teamwork, Leadership, Communication, Problem Solving, Analytical, Critical Thinking
 
 CERTIFICATIONS

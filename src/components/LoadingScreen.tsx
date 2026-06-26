@@ -1,160 +1,164 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { useEffect, useMemo, useState } from 'react';
 import { useReducedMotion } from '../hooks';
 
 interface LoadingScreenProps {
-  onLoadingComplete?: () => void;
+  onLoadingComplete: () => void;
 }
 
 /**
- * LoadingScreen component with JP monogram animation
- * Features:
- * - SVG JP monogram with stroke-dasharray animation
- * - Orbiting particles using circular motion paths
- * - Animated progress bar
- * - Fading grid backdrop with CSS gradients
- * - Auto-dismisses after 2-3s with fade-out exit animation
+ * LoadingScreen — a pixel-art mountain night scene.
+ *
+ * The whole scene is drawn in SVG where 1 viewBox unit = 1 "pixel" cell,
+ * scaled up with crisp edges so it reads as blocky pixel art. Mountains are
+ * built as stepped pyramids, with white snow caps, twinkling stars and a
+ * pixel moon. A progress bar fills over DURATION, then the overlay fades out
+ * and unmounts. Honors prefers-reduced-motion (near-instant, no twinkle).
  */
+
+const COLS = 48;
+const ROWS = 27;
+
+// Monochrome-friendly palette that pops on the dark sky.
+const SNOW = '#f8fafc';
+const ROCK_FRONT = '#64748b';
+const ROCK_BACK = '#3b4759';
+const ROCK_SIDE = '#2a3344';
+
+interface Cell {
+  x: number;
+  y: number;
+  w: number;
+  fill: string;
+}
+
+// Build a filled, stair-stepped mountain (1-cell-tall rows widening downward).
+function steppedMountain(
+  cx: number,
+  peakRow: number,
+  baseRow: number,
+  widthPerRow: number,
+  rock: string,
+  snowRows = 0
+): Cell[] {
+  const cells: Cell[] = [];
+  for (let r = peakRow; r <= baseRow; r++) {
+    const half = Math.round((r - peakRow) * widthPerRow);
+    cells.push({
+      x: cx - half,
+      y: r,
+      w: half * 2 + 1,
+      fill: r - peakRow < snowRows ? SNOW : rock,
+    });
+  }
+  return cells;
+}
+
+const STARS: [number, number][] = [
+  [3, 2], [7, 4], [12, 1], [16, 5], [20, 3], [31, 3],
+  [35, 1], [9, 8], [44, 9], [5, 11], [22, 7], [29, 9],
+];
+
+// 3x3 pixel moon (top-right).
+const MOON: [number, number][] = [
+  [41, 2], [42, 2], [43, 2],
+  [41, 3], [42, 3], [43, 3],
+  [41, 4], [42, 4], [43, 4],
+];
+
 export function LoadingScreen({ onLoadingComplete }: LoadingScreenProps) {
-  const [isVisible, setIsVisible] = useState(true);
-  const [progress, setProgress] = useState(0);
   const prefersReducedMotion = useReducedMotion();
+  const DURATION = prefersReducedMotion ? 350 : 1700;
+
+  const [pct, setPct] = useState(0);
+  const [exiting, setExiting] = useState(false);
+
+  const mountains = useMemo(
+    () => [
+      ...steppedMountain(11, 13, ROWS, 0.85, ROCK_BACK),
+      ...steppedMountain(38, 14, ROWS, 0.9, ROCK_SIDE),
+      ...steppedMountain(26, 6, ROWS, 0.8, ROCK_FRONT, 3),
+    ],
+    []
+  );
 
   useEffect(() => {
-    // Simulate loading progress
-    const progressInterval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(progressInterval);
-          return 100;
-        }
-        return prev + 2;
-      });
-    }, 50);
-
-    // Auto-dismiss after 2.5 seconds
-    const dismissTimer = setTimeout(() => {
-      setIsVisible(false);
-      setTimeout(() => {
-        onLoadingComplete?.();
-      }, 500); // Wait for exit animation
-    }, 2500);
-
-    return () => {
-      clearInterval(progressInterval);
-      clearTimeout(dismissTimer);
+    let raf: number;
+    const start = performance.now();
+    const tick = (t: number) => {
+      const p = Math.min(1, (t - start) / DURATION);
+      setPct(Math.round(p * 100));
+      if (p < 1) raf = requestAnimationFrame(tick);
+      else setExiting(true);
     };
-  }, [onLoadingComplete]);
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [DURATION]);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          className="fixed inset-0 z-[10000] flex items-center justify-center bg-white"
-          initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: prefersReducedMotion ? 0.01 : 0.5 }}
+    <motion.div
+      className="fixed inset-0 z-[100] flex flex-col items-center justify-center"
+      style={{
+        background:
+          'linear-gradient(180deg, #0b1020 0%, #131a2e 55%, #1c2438 100%)',
+      }}
+      initial={{ opacity: 1 }}
+      animate={{ opacity: exiting ? 0 : 1 }}
+      transition={{ duration: prefersReducedMotion ? 0.2 : 0.55, ease: 'easeInOut' }}
+      onAnimationComplete={() => {
+        if (exiting) onLoadingComplete();
+      }}
+      role="status"
+      aria-label="Loading portfolio"
+    >
+      <style>{`
+        @keyframes ls-twinkle { 0%,100% { opacity: .3 } 50% { opacity: 1 } }
+        .ls-star { animation: ls-twinkle 2.2s ease-in-out infinite; }
+      `}</style>
+
+      <div className="w-72 sm:w-96 px-2">
+        <svg
+          viewBox={`0 0 ${COLS} ${ROWS}`}
+          className="w-full h-auto"
+          shapeRendering="crispEdges"
+          style={{ imageRendering: 'pixelated' }}
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
         >
-          {/* Clean backdrop */}
-          <div className="absolute inset-0 opacity-5">
-            <div
-              className="h-full w-full"
-              style={{
-                backgroundImage: `
-                  linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
-                  linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
-                `,
-                backgroundSize: '50px 50px',
-              }}
+          {/* Stars */}
+          {STARS.map(([x, y], i) => (
+            <rect
+              key={`s${i}`}
+              x={x}
+              y={y}
+              width={1}
+              height={1}
+              fill={SNOW}
+              className={prefersReducedMotion ? undefined : 'ls-star'}
+              style={prefersReducedMotion ? undefined : { animationDelay: `${(i % 5) * 0.4}s` }}
             />
-          </div>
+          ))}
 
-          {/* Main content container */}
-          <div className="relative z-10 flex flex-col items-center gap-12">
-            {/* JP Monogram */}
-            <div className="relative w-48 h-48">
-              {/* SVG JP Monogram */}
-              <svg
-                viewBox="0 0 200 200"
-                className="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* J letter */}
-                <motion.path
-                  d="M 60 40 L 60 120 Q 60 140 45 140 Q 30 140 30 125"
-                  stroke="url(#gradient1)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{
-                    pathLength: { duration: prefersReducedMotion ? 0.01 : 1.5, ease: 'easeInOut' },
-                    opacity: { duration: prefersReducedMotion ? 0.01 : 0.3 },
-                  }}
-                />
+          {/* Moon */}
+          {MOON.map(([x, y], i) => (
+            <rect key={`m${i}`} x={x} y={y} width={1} height={1} fill={SNOW} />
+          ))}
 
-                {/* P letter */}
-                <motion.path
-                  d="M 100 40 L 100 140 M 100 40 L 140 40 Q 160 40 160 65 Q 160 90 140 90 L 100 90"
-                  stroke="url(#gradient2)"
-                  strokeWidth="6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{
-                    pathLength: { duration: prefersReducedMotion ? 0.01 : 1.5, ease: 'easeInOut', delay: prefersReducedMotion ? 0 : 0.3 },
-                    opacity: { duration: prefersReducedMotion ? 0.01 : 0.3, delay: prefersReducedMotion ? 0 : 0.3 },
-                  }}
-                />
+          {/* Mountains */}
+          {mountains.map((c, i) => (
+            <rect key={`c${i}`} x={c.x} y={c.y} width={c.w} height={1} fill={c.fill} />
+          ))}
+        </svg>
 
-                {/* Gradient definitions */}
-                <defs>
-                  <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#111827" />
-                    <stop offset="100%" stopColor="#374151" />
-                  </linearGradient>
-                  <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#374151" />
-                    <stop offset="100%" stopColor="#6b7280" />
-                  </linearGradient>
-                </defs>
-              </svg>
+        {/* Pixel progress bar */}
+        <div className="mt-6 h-3 w-full border-2 border-white/25 bg-white/5 p-0.5">
+          <div className="h-full bg-white/90" style={{ width: `${pct}%` }} />
+        </div>
 
-              {/* Glow effect behind monogram */}
-              <div
-                className="absolute inset-0 blur-3xl opacity-50"
-                style={{
-                  background: 'radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, transparent 70%)',
-                }}
-              />
-            </div>
-
-            {/* Progress bar */}
-            <div className="w-64 h-0.5 bg-gray-200 rounded-full overflow-hidden">
-              <motion.div
-                className="h-full bg-gray-900"
-                initial={{ width: '0%' }}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: prefersReducedMotion ? 0.01 : 0.3, ease: 'easeOut' }}
-              />
-            </div>
-
-            {/* Loading text */}
-            <motion.p
-              className="text-gray-600 text-sm tracking-wider font-light"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: prefersReducedMotion ? 0.01 : 0.5, delay: prefersReducedMotion ? 0 : 0.5 }}
-            >
-              Loading...
-            </motion.p>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        <p className="mt-3 text-center font-mono text-[11px] tracking-[0.3em] text-white/60 uppercase">
+          Loading {pct}%
+        </p>
+      </div>
+    </motion.div>
   );
 }

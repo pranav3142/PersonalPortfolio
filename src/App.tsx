@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 
 import {
   LoadingScreen,
@@ -11,17 +11,18 @@ import {
   Skills,
   Contact,
   Footer,
-  Chatbot,
 } from './components';
-import { ThreeBackground } from './components/ThreeBackground';
+
+// Code-split the heavy dependencies out of the initial bundle so first paint
+// doesn't pay for them: ThreeBackground pulls in three + @react-three/*, and
+// Chatbot pulls in @google/generative-ai. Both load after the page is up.
+const ThreeBackground = lazy(() =>
+  import('./components/ThreeBackground').then((m) => ({ default: m.ThreeBackground }))
+);
+const Chatbot = lazy(() => import('./components/Chatbot'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-
-
-  const handleLoadingComplete = () => {
-    setIsLoading(false);
-  };
 
   return (
     <>
@@ -30,13 +31,13 @@ function App() {
         Skip to main content
       </a>
 
-      {/* Loading Screen - conditionally displayed */}
-      {isLoading && <LoadingScreen onLoadingComplete={handleLoadingComplete} />}
+      {/* Pixel-art mountain loading screen (fades out, then unmounts) */}
+      {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
 
-
-
-      {/* Three.js Background */}
-      <ThreeBackground />
+      {/* Three.js Background (lazy — falls back to nothing while loading) */}
+      <Suspense fallback={null}>
+        <ThreeBackground />
+      </Suspense>
 
       {/* Main Application */}
       <div className="min-h-screen relative text-gray-900">
@@ -70,8 +71,10 @@ function App() {
         {/* Footer */}
         <Footer />
 
-        {/* Chatbot */}
-        <Chatbot />
+        {/* Chatbot (lazy — Gemini SDK loads only when this mounts) */}
+        <Suspense fallback={null}>
+          <Chatbot />
+        </Suspense>
       </div>
     </>
   );
