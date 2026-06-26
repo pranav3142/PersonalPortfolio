@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# 🕵️  Stage 2 of 3 — nice, you actually read the rules.
+# The vault door is a URL fragment. Append  #vault  to the homepage
+# (or, if you know the old-school cheat code, try that instead ↑↑↓↓←→←→ B A).
