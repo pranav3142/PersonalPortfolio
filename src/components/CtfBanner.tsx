@@ -14,6 +14,7 @@ const DISMISS_KEY = 'ctf_banner_dismissed';
 
 export function CtfBanner() {
   const [visible, setVisible] = useState(false);
+  const [hintVisible, setHintVisible] = useState(false);
 
   useEffect(() => {
     let dismissed = false;
@@ -58,9 +59,19 @@ export function CtfBanner() {
             </span>
             <div className="min-w-0">
               <p className="text-slate-100">Secret cyber CTF hidden in this site</p>
-              <p className="mt-0.5 text-slate-400">
-                Find the flag — hint: real hackers open the console <span aria-hidden="true">👀</span>
-              </p>
+              {hintVisible ? (
+                <p className="mt-0.5 text-slate-400">
+                  hint: real hackers open the console <span aria-hidden="true">👀</span>
+                </p>
+              ) : (
+                <button
+                  onClick={() => setHintVisible(true)}
+                  aria-label="Show hint"
+                  className="mt-1 rounded border border-white/15 px-2 py-0.5 text-xs text-slate-300 transition-colors hover:bg-white/10"
+                >
+                  hint
+                </button>
+              )}
             </div>
             <button
               onClick={dismiss}
