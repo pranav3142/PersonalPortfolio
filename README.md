@@ -107,7 +107,7 @@ The website is built using modern technologies:
 
 1. **Clone the repository**
    ```bash
-   git clone [https://github.com/pranav3142/PersonalPortfolio.git](https://github.com/pranav3142/PersonalPortfolio.git)
+   git clone https://github.com/pranav3142/PersonalPortfolio.git
    cd PersonalPortfolio
    ```
 
@@ -122,8 +122,10 @@ The website is built using modern technologies:
 
    Create a `.env.local` file in the root directory and add your configuration:
    ```env
-   REACT_APP_GEMINI_API_KEY=your_gemini_api_key_here
+   VITE_GEMINI_API_KEY=your_gemini_api_key_here
    ```
+
+   Vite only exposes variables prefixed with `VITE_` to the client.
 
 4. **Start the development server**
    ```bash
@@ -133,7 +135,7 @@ The website is built using modern technologies:
    ```
 
 5. **Open your browser**
-   Navigate to `http://localhost:3000` to view the website locally.
+   Navigate to `http://localhost:5173` to view the website locally.
 
 ### Build for Production
 
@@ -142,7 +144,7 @@ npm run build
 # or
 yarn build
 ```
-This creates an optimized production build in the `dist` or `build` directory.
+This type-checks the project and creates an optimized production build in the `dist` directory. Preview it locally with `npm run preview`.
 
 ### Deploy to Vercel
 
@@ -157,22 +159,22 @@ The website is optimized for deployment on Vercel:
 
 ```text
 PersonalPortfolio/
-├── public/                 # Static assets
+├── public/                 # Static assets (resume, models, project images)
 ├── src/
-│   ├── components/         # React components
-│   │   ├── ChatBot/        # AI Chatbot components
-│   │   ├── Mountain3D/     # 3D Mountain visualization
-│   │   └── ...             # Other components
-│   ├── pages/              # Page components
-│   ├── styles/             # CSS stylesheets
-│   ├── utils/              # Utility functions
+│   ├── components/         # Section components (Hero, About, Projects, ...)
+│   │   ├── Chatbot.tsx     # Gemini-powered AI chatbot
+│   │   ├── ThreeBackground.tsx  # Three.js 3D background scene
+│   │   └── ui/             # Reusable UI primitives (Button, Card, ...)
 │   ├── hooks/              # Custom React hooks
-│   ├── api/                # API integrations (Gemini)
-│   ├── three/              # Three.js scenes and objects
-│   └── App.tsx             # Main application component
+│   ├── App.tsx             # Main application component
+│   ├── main.tsx            # Application entry point
+│   └── index.css           # Global styles / Tailwind entry
+├── index.html              # Vite HTML entry point
 ├── .env.local              # Environment variables (not in repo)
 ├── package.json            # Project dependencies
 ├── tsconfig.json           # TypeScript configuration
+├── tailwind.config.ts      # Tailwind configuration
+├── vite.config.ts          # Vite configuration
 └── README.md               # This file
 ```
 
