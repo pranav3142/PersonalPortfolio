@@ -26,9 +26,10 @@ This is a comprehensive personal portfolio website designed to:
 
 The website is built using modern technologies:
 
-- **TypeScript** (94.6%) - For type-safe JavaScript development
+- **TypeScript** - For type-safe JavaScript development
 - **React** - UI library for building interactive components
-- **CSS** (3.9%) - Styling and responsive design
+- **Vite** - Build tool and development server
+- **Tailwind CSS** - Styling and responsive design
 - **Three.js** - 3D graphics library for interactive visualizations
 - **Gemini AI** - Powering the intelligent chatbot
 - **Vercel** - Hosting and deployment platform
@@ -50,6 +51,16 @@ The website is built using modern technologies:
 - **Performance Optimized**: Efficient rendering that doesn't impact page performance
 - **Responsive**: Scales beautifully on all device sizes
 - **Immersive Experience**: Creates a unique and memorable first impression
+
+#### 🚩 Hidden CTF Challenge
+- **A Three-Stage Treasure Hunt**: There's a capture-the-flag puzzle hidden in the site, rewarding visitors who poke around
+- **Starts in the Browser Console**: Stage 1 is a nudge printed to the console — the rest of the trail unfolds from there
+- **Ends at the Vault**: A terminal-styled challenge screen with a cipher to crack and a flag to claim
+- **Discoverable, Not Obnoxious**: A dismissible banner hints that the hunt exists, with an optional nudge for anyone who wants one
+- **Progress Persists**: Solved state is remembered in `localStorage`, so the site greets returning solvers accordingly
+- **Zero Cost to Everyone Else**: The vault is lazy-loaded and only fetched once triggered, so a normal visit never pays for it
+
+> The trail is intentionally left undocumented here — half the fun is finding it. If you want to read the answers instead of earning them, they're in `src/components/Ctf.tsx`.
 
 #### 📱 Responsive Design
 - Fully responsive layout that works seamlessly on desktop, tablet, and mobile devices
@@ -164,6 +175,8 @@ PersonalPortfolio/
 │   ├── components/         # Section components (Hero, About, Projects, ...)
 │   │   ├── Chatbot.tsx     # Gemini-powered AI chatbot
 │   │   ├── ThreeBackground.tsx  # Three.js 3D background scene
+│   │   ├── Ctf.tsx         # Hidden CTF vault (lazy-loaded)
+│   │   ├── CtfBanner.tsx   # Dismissible nudge toward the CTF
 │   │   └── ui/             # Reusable UI primitives (Button, Card, ...)
 │   ├── hooks/              # Custom React hooks
 │   ├── App.tsx             # Main application component
