@@ -26,9 +26,10 @@ This is a comprehensive personal portfolio website designed to:
 
 The website is built using modern technologies:
 
-- **TypeScript** (94.6%) - For type-safe JavaScript development
+- **TypeScript** - For type-safe JavaScript development
 - **React** - UI library for building interactive components
-- **CSS** (3.9%) - Styling and responsive design
+- **Vite** - Build tool and development server
+- **Tailwind CSS** - Styling and responsive design
 - **Three.js** - 3D graphics library for interactive visualizations
 - **Gemini AI** - Powering the intelligent chatbot
 - **Vercel** - Hosting and deployment platform
@@ -50,6 +51,16 @@ The website is built using modern technologies:
 - **Performance Optimized**: Efficient rendering that doesn't impact page performance
 - **Responsive**: Scales beautifully on all device sizes
 - **Immersive Experience**: Creates a unique and memorable first impression
+
+#### 🚩 Hidden CTF Challenge
+- **A Three-Stage Treasure Hunt**: There's a capture-the-flag puzzle hidden in the site, rewarding visitors who poke around
+- **Starts in the Browser Console**: Stage 1 is a nudge printed to the console — the rest of the trail unfolds from there
+- **Ends at the Vault**: A terminal-styled challenge screen with a cipher to crack and a flag to claim
+- **Discoverable, Not Obnoxious**: A dismissible banner hints that the hunt exists, with an optional nudge for anyone who wants one
+- **Progress Persists**: Solved state is remembered in `localStorage`, so the site greets returning solvers accordingly
+- **Zero Cost to Everyone Else**: The vault is lazy-loaded and only fetched once triggered, so a normal visit never pays for it
+
+> The trail is intentionally left undocumented here — half the fun is finding it. If you want to read the answers instead of earning them, they're in `src/components/Ctf.tsx`.
 
 #### 📱 Responsive Design
 - Fully responsive layout that works seamlessly on desktop, tablet, and mobile devices
@@ -107,7 +118,7 @@ The website is built using modern technologies:
 
 1. **Clone the repository**
    ```bash
-   git clone [https://github.com/pranav3142/PersonalPortfolio.git](https://github.com/pranav3142/PersonalPortfolio.git)
+   git clone https://github.com/pranav3142/PersonalPortfolio.git
    cd PersonalPortfolio
    ```
 
@@ -122,8 +133,10 @@ The website is built using modern technologies:
 
    Create a `.env.local` file in the root directory and add your configuration:
    ```env
-   REACT_APP_GEMINI_API_KEY=your_gemini_api_key_here
+   VITE_GEMINI_API_KEY=your_gemini_api_key_here
    ```
+
+   Vite only exposes variables prefixed with `VITE_` to the client.
 
 4. **Start the development server**
    ```bash
@@ -133,7 +146,7 @@ The website is built using modern technologies:
    ```
 
 5. **Open your browser**
-   Navigate to `http://localhost:3000` to view the website locally.
+   Navigate to `http://localhost:5173` to view the website locally.
 
 ### Build for Production
 
@@ -142,7 +155,7 @@ npm run build
 # or
 yarn build
 ```
-This creates an optimized production build in the `dist` or `build` directory.
+This type-checks the project and creates an optimized production build in the `dist` directory. Preview it locally with `npm run preview`.
 
 ### Deploy to Vercel
 
@@ -157,22 +170,24 @@ The website is optimized for deployment on Vercel:
 
 ```text
 PersonalPortfolio/
-├── public/                 # Static assets
+├── public/                 # Static assets (resume, models, project images)
 ├── src/
-│   ├── components/         # React components
-│   │   ├── ChatBot/        # AI Chatbot components
-│   │   ├── Mountain3D/     # 3D Mountain visualization
-│   │   └── ...             # Other components
-│   ├── pages/              # Page components
-│   ├── styles/             # CSS stylesheets
-│   ├── utils/              # Utility functions
+│   ├── components/         # Section components (Hero, About, Projects, ...)
+│   │   ├── Chatbot.tsx     # Gemini-powered AI chatbot
+│   │   ├── ThreeBackground.tsx  # Three.js 3D background scene
+│   │   ├── Ctf.tsx         # Hidden CTF vault (lazy-loaded)
+│   │   ├── CtfBanner.tsx   # Dismissible nudge toward the CTF
+│   │   └── ui/             # Reusable UI primitives (Button, Card, ...)
 │   ├── hooks/              # Custom React hooks
-│   ├── api/                # API integrations (Gemini)
-│   ├── three/              # Three.js scenes and objects
-│   └── App.tsx             # Main application component
+│   ├── App.tsx             # Main application component
+│   ├── main.tsx            # Application entry point
+│   └── index.css           # Global styles / Tailwind entry
+├── index.html              # Vite HTML entry point
 ├── .env.local              # Environment variables (not in repo)
 ├── package.json            # Project dependencies
 ├── tsconfig.json           # TypeScript configuration
+├── tailwind.config.ts      # Tailwind configuration
+├── vite.config.ts          # Vite configuration
 └── README.md               # This file
 ```
 
