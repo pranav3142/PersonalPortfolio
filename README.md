@@ -32,6 +32,7 @@ The website is built using modern technologies:
 - **Tailwind CSS** - Styling and responsive design
 - **Three.js** - 3D graphics library for interactive visualizations
 - **Gemini AI** - Powering the intelligent chatbot
+- **Vercel Serverless Functions** - Backend that proxies Gemini and keeps the API key server-side
 - **Vercel** - Hosting and deployment platform
 
 ## Features
@@ -40,10 +41,12 @@ The website is built using modern technologies:
 
 #### 🤖 AI RAG Chatbot
 - **Intelligent Assistant**: Powered by Google's Gemini AI
-- **RAG (Retrieval-Augmented Generation)**: The chatbot uses RAG technology to provide accurate, contextual responses about my background, projects, and expertise
+- **RAG (Retrieval-Augmented Generation)**: The chatbot grounds its answers in my resume to give accurate, contextual responses about my background, projects, and expertise
 - **Real-time Interactions**: Chat with an AI assistant trained on my portfolio information
 - **Natural Conversations**: Ask questions about my skills, projects, experience, and availability
 - **Context Aware**: Understands previous conversation context for seamless interactions
+- **Server-Side by Design**: The model call runs in a serverless function, so the API key, the system instruction, and the grounding context never reach the browser. The client sends only the message and recent turns
+- **Guarded**: Input validation, safety settings, and per-IP rate limiting are enforced on the server, where a caller can't skip them
 
 #### 🏔️ Rotating 3D Mountain Visualization
 - **Interactive 3D Graphics**: Built with Three.js for stunning visual effects
@@ -131,19 +134,27 @@ The website is built using modern technologies:
 
 3. **Set up environment variables**
 
-   Create a `.env.local` file in the root directory and add your configuration:
+   Copy `.env.example` to `.env.local` and fill in your key:
    ```env
-   VITE_GEMINI_API_KEY=your_gemini_api_key_here
+   GEMINI_API_KEY=your_gemini_api_key_here
    ```
 
-   Vite only exposes variables prefixed with `VITE_` to the client.
+   > **Do not prefix this with `VITE_`.** Vite inlines every `VITE_*` variable
+   > into the browser bundle at build time, which would publish the key to
+   > anyone who views source. The key is read only by the backend.
 
 4. **Start the development server**
    ```bash
    npm run dev
-   # or
-   yarn dev
    ```
+
+   This serves the frontend on `http://localhost:5173`. The chatbot calls
+   `/api/chat`, which is proxied to `http://localhost:3000` — so to exercise it
+   locally, run the backend alongside in a second terminal:
+   ```bash
+   npm run dev:api    # vercel dev, serves the function on :3000
+   ```
+   The rest of the site works without it.
 
 5. **Open your browser**
    Navigate to `http://localhost:5173` to view the website locally.
@@ -152,42 +163,58 @@ The website is built using modern technologies:
 
 ```bash
 npm run build
-# or
-yarn build
 ```
-This type-checks the project and creates an optimized production build in the `dist` directory. Preview it locally with `npm run preview`.
+This type-checks both `frontend/` and `backend/`, then creates an optimized
+production build in `frontend/dist`. Preview it with `npm run preview`, and
+type-check on its own with `npm run typecheck`.
 
 ### Deploy to Vercel
 
-The website is optimized for deployment on Vercel:
+`vercel.json` sets the build command, the output directory, and the files the
+serverless function needs, so deployment is largely automatic:
 
 1. Push your code to GitHub
 2. Connect your repository to Vercel
-3. Vercel will automatically detect the configuration and deploy your site
-4. Your live website will be available at your Vercel domain
+3. **Add `GEMINI_API_KEY` in Project Settings → Environment Variables.** The
+   chatbot returns a 503 without it; nothing else on the site is affected
+4. Leave the project's Root Directory at the repository root — Vercel only
+   picks up serverless functions from a top-level `api/` directory
 
 ## Project Structure
 
+The repository is split into a `frontend/` app and a `backend/` that keeps the
+Gemini API key off the client.
+
 ```text
 PersonalPortfolio/
-├── public/                 # Static assets (resume, models, project images)
-├── src/
-│   ├── components/         # Section components (Hero, About, Projects, ...)
-│   │   ├── Chatbot.tsx     # Gemini-powered AI chatbot
-│   │   ├── ThreeBackground.tsx  # Three.js 3D background scene
-│   │   ├── Ctf.tsx         # Hidden CTF vault (lazy-loaded)
-│   │   ├── CtfBanner.tsx   # Dismissible nudge toward the CTF
-│   │   └── ui/             # Reusable UI primitives (Button, Card, ...)
-│   ├── hooks/              # Custom React hooks
-│   ├── App.tsx             # Main application component
-│   ├── main.tsx            # Application entry point
-│   └── index.css           # Global styles / Tailwind entry
-├── index.html              # Vite HTML entry point
-├── .env.local              # Environment variables (not in repo)
-├── package.json            # Project dependencies
-├── tsconfig.json           # TypeScript configuration
-├── tailwind.config.ts      # Tailwind configuration
-├── vite.config.ts          # Vite configuration
+├── frontend/               # The React single-page app
+│   ├── public/             # Static assets (resume, models, project images)
+│   ├── src/
+│   │   ├── components/     # Section components (Hero, About, Projects, ...)
+│   │   │   ├── Chatbot.tsx # Chat widget — calls /api/chat, holds no key
+│   │   │   ├── ThreeBackground.tsx  # Three.js 3D background scene
+│   │   │   ├── Ctf.tsx     # Hidden CTF vault (lazy-loaded)
+│   │   │   ├── CtfBanner.tsx   # Dismissible nudge toward the CTF
+│   │   │   └── ui/         # Reusable UI primitives (Button, Card, ...)
+│   │   ├── hooks/          # Custom React hooks
+│   │   ├── App.tsx         # Main application component
+│   │   ├── main.tsx        # Application entry point
+│   │   └── index.css       # Global styles / Tailwind entry
+│   ├── index.html          # Vite HTML entry point
+│   ├── vite.config.ts      # Vite configuration
+│   ├── tailwind.config.ts  # Tailwind configuration
+│   └── tsconfig.json       # Frontend TypeScript configuration
+├── backend/                # Server-side logic — host-agnostic
+│   ├── chat.ts             # Gemini proxy: validation, safety, model call
+│   ├── prompt.ts           # System instruction (never sent to the client)
+│   ├── resume.ts           # Loads the resume that grounds the model
+│   ├── rateLimit.ts        # Best-effort per-IP throttling
+│   └── tsconfig.json       # Backend TypeScript configuration
+├── api/
+│   └── chat.ts             # Vercel entry point — thin adapter over backend/
+├── vercel.json             # Build, output directory, function config
+├── .env.example            # Environment variable template
+├── package.json            # Dependencies and scripts for both halves
 └── README.md               # This file
 ```
 

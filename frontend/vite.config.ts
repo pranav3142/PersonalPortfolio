@@ -5,6 +5,9 @@ import path from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // The app lives in frontend/ while the build runs from the repo root, so
+  // both the source root and the output path are pinned explicitly.
+  root: __dirname,
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -14,7 +17,18 @@ export default defineConfig({
       '@ui': path.resolve(__dirname, './src/components/ui')
     }
   },
+  server: {
+    // Proxy API calls to `vercel dev` so the chatbot works in local dev.
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+    },
+  },
   build: {
+    outDir: path.resolve(__dirname, 'dist'),
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         // Split large vendors into their own cacheable chunks. three/drei
